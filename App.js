@@ -1,6 +1,8 @@
 import React, { createElement, PureComponent, PropTypes } from 'react'
 import { View, Text, Alert, ActivityIndicator, ScrollView, StyleSheet } from 'react-native'
 import HTML from 'html-parse-stringify'
+import uniqueId from 'lodash.uniqueid'
+import he from 'he'
 
 const styles = StyleSheet.create({
   activityContainer: {
@@ -64,16 +66,16 @@ const convertToReact = tree => tree.map(node => {
   if (node.type === 'tag') {
     switch (node.name) {
       case 'p':
-        return createElement(Paragraph, [], convertToReact(node.children))
+        return createElement(Paragraph, { key: uniqueId() }, convertToReact(node.children))
       case 'b':
-        return createElement(Bold, [], convertToReact(node.children))
+        return createElement(Bold, { key: uniqueId() }, convertToReact(node.children))
       case 'i':
-       return createElement(Italic, [], convertToReact(node.children))
+       return createElement(Italic, { key: uniqueId() }, convertToReact(node.children))
       case 'br':
-        return createElement(Break, [], convertToReact(node.children))
+        return createElement(Break, { key: uniqueId() }, convertToReact(node.children))
     }
   } else if (node.type === 'text') {
-    return createElement(ContextAwareText, [], [node.content])
+    return createElement(ContextAwareText, { key: uniqueId() }, [he.decode(node.content)])
   }
 })
 

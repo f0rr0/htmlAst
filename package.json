@@ -20,7 +20,9 @@
   },
   "dependencies": {
     "expo": "^18.0.3",
+    "he": "^1.1.1",
     "html-parse-stringify": "^1.0.2",
+    "lodash.uniqueid": "^4.0.1",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.45.1"
   }
