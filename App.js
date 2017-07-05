@@ -17,11 +17,9 @@ const styles = StyleSheet.create({
     fontStyle: 'italic'
   },
   paragraph: {
-    alignSelf: 'stretch',
     marginBottom: 10
   },
   break: {
-    alignSelf: 'stretch',
     height: 20
   },
   container: {
