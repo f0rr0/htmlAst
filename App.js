@@ -24,8 +24,12 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     height: 20
   },
-  containerStyle: {
-    marginTop: 30
+  container: {
+    marginTop: 30,
+  },
+  contentContainer: {
+    marginHorizontal: 10,
+    marginBottom: 30
   },
   name: {
     fontSize: 25,
@@ -101,7 +105,7 @@ export default class App extends PureComponent {
     }
     const reactNodes = convertToReact(HTML.parse(data.text))
     return (
-      <ScrollView style={styles.containerStyle}>
+      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <Text style={styles.name}>{data.name}</Text>
         {reactNodes}
       </ScrollView>
