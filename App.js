@@ -64,7 +64,7 @@ class Italic extends PureComponent {
 }
 const Paragraph = ({ children }) => <Text style={styles.paragraph}>{children}</Text>
 const Break = () => <Text>{'\n'}</Text>
-const ContextAwareText = ({ children }, context) => <Text style={context.textStyle || {}}>{children}</Text>
+const ContextAwareText = ({ children }, { textStyle = {} }) => <Text style={textStyle}>{children}</Text>
 ContextAwareText.contextTypes = {
   textStyle: PropTypes.object
 }
